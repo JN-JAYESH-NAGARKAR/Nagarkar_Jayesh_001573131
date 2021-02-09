@@ -80,6 +80,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setDividerLocation(230);
 
+        btnCreateDemographicInfo.setBackground(new java.awt.Color(204, 255, 204));
         btnCreateDemographicInfo.setText("Create Demographic Information");
         btnCreateDemographicInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +88,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnCreateAddressInfo.setBackground(new java.awt.Color(204, 255, 204));
         btnCreateAddressInfo.setText("Create Address Information");
         btnCreateAddressInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +103,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnCreateSavingAccountInformation.setBackground(new java.awt.Color(204, 255, 204));
         btnCreateSavingAccountInformation.setText("Create Saving Account Information");
         btnCreateSavingAccountInformation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +125,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnCreatCheckingAccountInfo.setBackground(new java.awt.Color(204, 255, 204));
         btnCreatCheckingAccountInfo.setText("Create Checking Account Information");
         btnCreatCheckingAccountInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +140,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnCreateDriverLicenseInfo.setBackground(new java.awt.Color(204, 255, 204));
         btnCreateDriverLicenseInfo.setText("Create Driver's License Information");
         btnCreateDriverLicenseInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +155,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnCreateMedicalRecord.setBackground(new java.awt.Color(204, 255, 204));
         btnCreateMedicalRecord.setText("Create Medical Record");
         btnCreateMedicalRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,6 +170,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnReport.setBackground(new java.awt.Color(102, 255, 102));
         btnReport.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnReport.setText("Report");
         btnReport.addActionListener(new java.awt.event.ActionListener() {
