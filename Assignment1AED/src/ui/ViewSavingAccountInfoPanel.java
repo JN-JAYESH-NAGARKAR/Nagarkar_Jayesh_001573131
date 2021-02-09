@@ -25,6 +25,12 @@ public class ViewSavingAccountInfoPanel extends javax.swing.JPanel {
         txtBankRoutingNumber.setText(this.savingAccountInfo.getBankRoutingNumber());
         txtAccountBalance.setText(this.savingAccountInfo.getAccountBalance());
         txtAccountType.setText("Saving Account");
+        
+        txtBankName.setEditable(false);
+        txtBankAccountNumber.setEditable(false);
+        txtBankRoutingNumber.setEditable(false);
+        txtAccountType.setEditable(false);
+        txtAccountBalance.setEditable(false);
     }
 
     /**

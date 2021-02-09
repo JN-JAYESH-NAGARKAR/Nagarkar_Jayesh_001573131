@@ -23,6 +23,13 @@ public class ViewCheckingAccountInfo extends javax.swing.JPanel {
         txtBankName.setText(this.checkingAccountInfo.getBankName());
         txtBankAccountNumber.setText(this.checkingAccountInfo.getBankAccountNumber());
         txtBankRoutingNumber.setText(this.checkingAccountInfo.getBankRoutingNumber());
+        txtAccountBalance.setText(this.checkingAccountInfo.getAccountBalance());
+        
+        txtBankName.setEditable(false);
+        txtBankAccountNumber.setEditable(false);
+        txtBankRoutingNumber.setEditable(false);
+        txtAccountType.setEditable(false);
+        txtAccountBalance.setEditable(false);
     }
 
     /**
