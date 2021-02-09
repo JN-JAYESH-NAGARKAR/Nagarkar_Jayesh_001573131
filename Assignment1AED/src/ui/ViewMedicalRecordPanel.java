@@ -20,9 +20,10 @@ public class ViewMedicalRecordPanel extends javax.swing.JPanel {
         initComponents();
         this.medicalRecord = medicalRecord;
         txtMedicalRecordNumber.setText(this.medicalRecord.getMedicalRecordNumber());
-        txtAlergy3.setText(this.medicalRecord.getAlergy1());
+        txtAlergy1.setText(this.medicalRecord.getAlergy1());
         txtAlergy2.setText(this.medicalRecord.getAlergy2());
         txtAlergy3.setText(this.medicalRecord.getAlergy3());
+        //txtAlergy3.setText(this.medicalRecord.getAlergy3());
         
         txtMedicalRecordNumber.setEditable(false);
         txtAlergy1.setEditable(false);

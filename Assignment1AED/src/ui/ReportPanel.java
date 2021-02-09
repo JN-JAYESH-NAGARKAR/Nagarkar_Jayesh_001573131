@@ -90,6 +90,19 @@ public class ReportPanel extends javax.swing.JPanel {
         
         
         
+        //not editable
+        
+        txtFirstName.setEditable(false);
+        txtLastName.setEditable(false);
+        txtPhoneNumber.setEditable(false);
+        txtDateOfBirth.setEditable(false);
+        txtAge.setEditable(false);
+        txtHeight.setEditable(false);
+        txtWeight.setEditable(false);
+        txtSocialSecurityNumber.setEditable(false);
+        
+        
+        
         
         
         
@@ -182,7 +195,7 @@ public class ReportPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel1.setText("Demographic Information");
 
-        jLabel10.setText("jLabel10");
+        jLabel10.setText("First Name");
 
         txtFirstName.setText("jTextField1");
         txtFirstName.addActionListener(new java.awt.event.ActionListener() {
@@ -191,31 +204,31 @@ public class ReportPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("Last Name");
 
         txtLastName.setText("jTextField1");
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Phone Number");
 
         txtPhoneNumber.setText("jTextField1");
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setText("Date Of Birth");
 
         txtDateOfBirth.setText("jTextField3");
 
-        jLabel5.setText("jLabel5");
+        jLabel5.setText("Age");
 
         txtAge.setText("jTextField4");
 
-        jLabel6.setText("jLabel6");
+        jLabel6.setText("Height");
 
         txtHeight.setText("jTextField5");
 
-        jLabel7.setText("jLabel7");
+        jLabel7.setText("Weight");
 
         txtWeight.setText("jTextField6");
 
-        jLabel8.setText("jLabel8");
+        jLabel8.setText("SSN");
 
         txtSocialSecurityNumber.setText("jTextField7");
 
