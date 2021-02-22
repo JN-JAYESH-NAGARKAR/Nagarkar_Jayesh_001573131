@@ -150,17 +150,17 @@ public class Patient {
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("Blood Pressure")){
+                }else if(vsign.contains("Pressure")){
                     if( this.getCurrentVitalSigns().getBloodPressure() >=50 && this.getCurrentVitalSigns().getBloodPressure() <= 70){
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("W in Kilo")){
+                }else if(vsign.contains("Kg")){
                     if(this.getCurrentVitalSigns().getWeightInKilo() >= 2 && this.getCurrentVitalSigns().getWeightInKilo()<=3){
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("W in Pound")){
+                }else if(vsign.contains("Pound")){
                     if(this.getCurrentVitalSigns().getWeightInPound() >= 4.5 && this.getCurrentVitalSigns().getWeightInPound() <= 7){
                     }else{
                         isNormal=false;
@@ -180,17 +180,17 @@ public class Patient {
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("Blood Pressur")){
+                }else if(vsign.contains("Pressure")){
                     if(this.getCurrentVitalSigns().getBloodPressure() >= 70 && this.getCurrentVitalSigns().getBloodPressure() <=100){
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("W in Kilo")){
+                }else if(vsign.contains("Kg")){
                     if(this.getCurrentVitalSigns().getWeightInKilo() >= 4 && this.getCurrentVitalSigns().getWeightInKilo()<= 10){
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("W in Pound")){
+                }else if(vsign.contains("Pound")){
                     if(this.getCurrentVitalSigns().getWeightInPound() >= 9 && this.getCurrentVitalSigns().getWeightInPound() <= 22){
                     }else{
                         isNormal=false;
@@ -210,17 +210,17 @@ public class Patient {
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("Blood Pressure")){
+                }else if(vsign.contains("Pressure")){
                     if(this.getCurrentVitalSigns().getBloodPressure() >=80 && this.getCurrentVitalSigns().getBloodPressure() <=110){
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("W in Kilo")){
+                }else if(vsign.contains("Kg")){
                     if(this.getCurrentVitalSigns().getWeightInKilo() >=10 && this.getCurrentVitalSigns().getWeightInKilo() <=14){
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("W in Pound")){
+                }else if(vsign.contains("Pound")){
                     if(this.getCurrentVitalSigns().getWeightInPound() >= 22 && this.getCurrentVitalSigns().getWeightInPound() <= 31){
                     }else{
                         isNormal=false;
@@ -239,17 +239,17 @@ public class Patient {
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("Blood Pressure")){
+                }else if(vsign.contains("Pressure")){
                     if(this.getCurrentVitalSigns().getBloodPressure() >=80 && this.getCurrentVitalSigns().getBloodPressure()<=110){
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("W in Kilo")){
+                }else if(vsign.contains("Kg")){
                     if(this.getCurrentVitalSigns().getWeightInKilo() >=14 && this.getCurrentVitalSigns().getWeightInKilo() <=18){
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("W in Pound")){
+                }else if(vsign.contains("Pound")){
                     if(this.getCurrentVitalSigns().getWeightInPound() >= 31 && this.getCurrentVitalSigns().getWeightInPound() <= 40){
                     }else{
                         isNormal=false;
@@ -268,17 +268,17 @@ public class Patient {
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("Blood Pressure")){
+                }else if(vsign.contains("Pressure")){
                     if(this.getCurrentVitalSigns().getBloodPressure() >=80 && this.getCurrentVitalSigns().getBloodPressure() <=120){
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("W in Kilo")){
+                }else if(vsign.contains("Kg")){
                     if(this.getCurrentVitalSigns().getWeightInKilo() >= 20 && this.getCurrentVitalSigns().getWeightInKilo() <= 42){
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains(" W in Pound")){
+                }else if(vsign.contains("Pound")){
                     if(this.getCurrentVitalSigns().getWeightInPound() >= 41 && this.getCurrentVitalSigns().getWeightInPound() <= 92){
                     }else{
                         isNormal=false;
@@ -297,22 +297,23 @@ public class Patient {
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("Blood Pressure ")){
+                }else if(vsign.contains("Pressure ")){
                     if(this.getCurrentVitalSigns().getBloodPressure() >=110 && this.getCurrentVitalSigns().getBloodPressure() <=120){
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("W in Kilo")){
+                }else if(vsign.contains("Kg")){
                     if(this.getCurrentVitalSigns().getWeightInKilo()>50){
                     }else{
                         isNormal=false;
                     }
-                }else if(vsign.contains("W in Pound")){
+                }else if(vsign.contains("Pound")){
                     if(this.getCurrentVitalSigns().getWeightInPound() > 110){
                     }else{
                         isNormal=false;
                     }
                 }
+             
         
         }
             return isNormal;

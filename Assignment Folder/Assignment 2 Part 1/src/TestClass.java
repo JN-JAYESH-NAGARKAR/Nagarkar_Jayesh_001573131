@@ -27,6 +27,7 @@ public class TestClass {
         System.out.println("4 Print all Past Patient Vital signs history");
         System.out.println("5 Enter any one sign to check if it is normal");
         System.out.println("6 Exit");
+        System.out.println("7. Check if Patient is normal or not");
         Scanner sc = new Scanner(System.in);
         int quitMenu = 0;
         while(true){
@@ -76,6 +77,13 @@ public class TestClass {
                 case 6:
                     quitMenu = 1;
                     break;
+                case 7:
+                    if(p.isPatientNormal(p.getCurrentVitalSigns())){
+                        System.out.println("Patient is normal");
+                    }
+                    else{
+                        System.out.println("Patient is not normal");
+                    }
                   
                     
             }     
