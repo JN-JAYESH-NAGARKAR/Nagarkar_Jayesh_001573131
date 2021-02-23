@@ -110,8 +110,8 @@ public class Patient {
             if( (vs.getRespiratoryRate()>=12 && vs.getRespiratoryRate()<=20)&& (vs.getHeartRate()>=55 && vs.getHeartRate()<=105)&& (vs.getBloodPressure()>=110 && vs.getBloodPressure()<=120)&& (vs.getWeightInKilo()>50) && (vs.getWeightInPound()>110) ){
                 
             }else{
-                System.out.println(vs.getWeightInKilo());
-                System.out.println(vs.getWeightInPound());
+                //System.out.println(vs.getWeightInKilo());
+                //System.out.println(vs.getWeightInPound());
                 
                 isPatientNormal = false;
             }
