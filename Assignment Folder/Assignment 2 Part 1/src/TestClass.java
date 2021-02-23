@@ -122,9 +122,9 @@ public class TestClass {
         System.out.println("Enter the Systolic Blood Pressure :");
         vs.setBloodPressure(sc.nextInt());
         System.out.println("Enter the Weight in Kilos :");
-        vs.setWeightInPound(sc.nextDouble());
-        System.out.println("Enter the Weight in Pounds :");
         vs.setWeightInKilo(sc.nextDouble());
+        System.out.println("Enter the Weight in Pounds :");
+        vs.setWeightInPound(sc.nextDouble());
         System.out.println( "Is patient Normal ? " + p.isPatientNormal(vs));
 
         
