@@ -19,29 +19,6 @@ public class ConfigureASystem {
         //initialize some organizations
         //have some employees 
         //create user account
-        /*
-        ---------------------------------sample code -------------------------------------------
-        Business business = Business.getInstance();
-        
-        AdminOrganization adminOrganization = new AdminOrganization();
-        business.getOrganizationDirectory().getOrganizationList().add(adminOrganization);
-        
-        Employee employee = new Employee();
-        employee.setName("Akeem of Zamunda");
-        
-        //UserAccount account = new UserAccount();
-        //account.setUsername("admin");
-        //account.setPassword("admin");
-        //account.setRole(new AdminRole());
-        //account.setEmployee(employee);
-        
-        adminOrganization.getEmployeeDirectory().getEmployeeList().add(employee);
-        adminOrganization.getUserAccountDirectory().getUserAccountList().add(account);
-        
-        return business;
-        ------------------------------------------------sample code------------------------------------------
-        
-        */
         
         
         Employee employee = system.getEmployeeDirectory().createEmployee("sysadmin");
