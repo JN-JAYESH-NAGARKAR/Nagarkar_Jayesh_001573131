@@ -25,12 +25,16 @@ public class OrganizationDirectory {
     
     public Organization createOrganization(Type type){
         Organization organization = null;
-        if (type.getValue().equals(Type.Doctor.getValue())){
-            organization = new DoctorOrganization();
+        if (type.getValue().equals(Type.Customer.getValue())){
+            organization = new CustomerOrganization();
             organizationList.add(organization);
         }
-        else if (type.getValue().equals(Type.Lab.getValue())){
-            organization = new LabOrganization();
+        else if (type.getValue().equals(Type.Manager.getValue())){
+            organization = new RestaurantManagerOrganization();
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(Type.DeliveryMan.getValue())){
+            organization = new DeliveryManOrganization();
             organizationList.add(organization);
         }
         return organization;

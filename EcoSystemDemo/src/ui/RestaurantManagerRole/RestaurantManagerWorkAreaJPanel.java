@@ -2,11 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.LabAssistantRole;
+package ui.RestaurantManagerRole;
 
 import Business.EcoSystem;
-import Business.Organization.LabOrganization;
+//import Business.Organization.LabOrganization;
 import Business.Organization.Organization;
+import Business.Organization.RestaurantManagerOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.LabTestWorkRequest;
 import Business.WorkQueue.WorkRequest;
@@ -18,23 +19,23 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
-public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
+public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem business;
     private UserAccount userAccount;
-    private LabOrganization labOrganization;
+    private RestaurantManagerOrganization managerOrganization;
     
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public LabAssistantWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem business) {
+    public RestaurantManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem business) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.business = business;
-        this.labOrganization = (LabOrganization)organization;
+        this.managerOrganization = (RestaurantManagerOrganization)organization;
         
         populateTable();
     }
@@ -44,7 +45,7 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
         
         model.setRowCount(0);
         
-        for(WorkRequest request : labOrganization.getWorkQueue().getWorkRequestList()){
+        for(WorkRequest request : managerOrganization.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[4];
             row[0] = request;
             row[1] = request.getSender().getEmployee().getName();
