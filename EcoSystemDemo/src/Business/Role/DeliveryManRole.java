@@ -10,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import ui.DeliveryManRole.DeliveryManWorkAreaJPanel;
 import ui.RestaurantManagerRole.RestaurantManagerWorkAreaJPanel;
 
 /**
@@ -19,6 +20,6 @@ import ui.RestaurantManagerRole.RestaurantManagerWorkAreaJPanel;
 public class DeliveryManRole extends Role{
     @Override        //update return statement   --jayesh
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new RestaurantManagerWorkAreaJPanel(userProcessContainer, account, organization, business);
+        return new DeliveryManWorkAreaJPanel(userProcessContainer, account, organization, business);
     }
 }

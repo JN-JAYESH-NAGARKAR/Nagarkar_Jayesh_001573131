@@ -141,27 +141,34 @@ public class MainJFrame extends javax.swing.JFrame {
                 //Step 2.a: check against each enterprise
                 for(Enterprise enterprise:network.getEnterpriseDirectory().getEnterpriseList()){
                     userAccount=enterprise.getUserAccountDirectory().authenticateUser(userName, password);
+                    System.out.println("MainJFrame line number 144");                 //print satement
                     if(userAccount==null){
                        //Step 3:check against each organization for each enterprise
                        for(Organization organization:enterprise.getOrganizationDirectory().getOrganizationList()){
                            userAccount=organization.getUserAccountDirectory().authenticateUser(userName, password);
+                           System.out.println("MainJFrame line number 149");        //print statement
                            if(userAccount!=null){
                                inEnterprise=enterprise;
                                inOrganization=organization;
+                               System.out.println("MainJFrame line number 153");              //print statement
                                break;
                            }
                        }
                         
                     }
                     else{
+                        
                        inEnterprise=enterprise;
+                       System.out.println("MainJFrame line number 162");                 //print satement
                        break;
                     }
                     if(inOrganization!=null){
+                        System.out.println("MainJFrame line number 166");                 //print satement
                         break;
                     }  
                 }
                 if(inEnterprise!=null){
+                    System.out.println("MainJFrame line number 171");                 //print satement
                     break;
                 }
             }
@@ -169,12 +176,18 @@ public class MainJFrame extends javax.swing.JFrame {
         
         if(userAccount==null){
             JOptionPane.showMessageDialog(null, "Invalid credentials");
+            System.out.println("MainJFrame line number 179");                 //print satement
+            System.out.println("MainJFrame line number 180--------------------------------------");                 //print satement
             return;
         }
         else{
+            System.out.println("MainJFrame line number 184"); 
             CardLayout layout=(CardLayout)container.getLayout();
+            System.out.println("MainJFrame line number 186"); 
             container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, system));
             layout.next(container);
+            System.out.println("MainJFrame line number 189");                 //print satement
+            System.out.println("MainJFrame line number 190-------------------------------------------"); 
         }
         
         loginJButton.setEnabled(false);

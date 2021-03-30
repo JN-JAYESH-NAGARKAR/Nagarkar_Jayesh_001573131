@@ -5,17 +5,36 @@
  */
 package ui.DeliveryManRole;
 
+import Business.EcoSystem;
+import Business.Organization.DeliveryManOrganization;
+import Business.Organization.Organization;
+import Business.Organization.RestaurantManagerOrganization;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author acer
  */
 public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private EcoSystem business;
+    private UserAccount userAccount;
+    private DeliveryManOrganization deliverymanOrganization;
+    
     /**
      * Creates new form DeliveryManWorkAreaJPanel
      */
-    public DeliveryManWorkAreaJPanel() {
+    public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem business) {
         initComponents();
+        
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = account;
+        this.business = business;
+        this.deliverymanOrganization = (DeliveryManOrganization)organization;
+        
+        //populateTable();
     }
 
     /**
