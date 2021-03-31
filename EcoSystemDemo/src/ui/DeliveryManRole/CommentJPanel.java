@@ -9,12 +9,12 @@ package ui.DeliveryManRole;
  *
  * @author acer
  */
-public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
+public class CommentJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public ProcessWorkRequestJPanel() {
+    public CommentJPanel() {
         initComponents();
     }
 

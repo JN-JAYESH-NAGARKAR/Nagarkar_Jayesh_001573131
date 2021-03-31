@@ -24,7 +24,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="108" y="58" width="375" height="96"/>
+          <AbsoluteConstraints x="108" y="58" width="430" height="120"/>
         </Constraint>
       </Constraints>
 
@@ -37,7 +37,7 @@
                 <Column editable="false" title="Message" type="java.lang.Object"/>
                 <Column editable="true" title="Sender" type="java.lang.String"/>
                 <Column editable="true" title="Receiver" type="java.lang.String"/>
-                <Column editable="false" title="Status" type="java.lang.String"/>
+                <Column editable="false" title="Order Status" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -73,7 +73,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="assignJButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Assign to me"/>
+        <Property name="text" type="java.lang.String" value="Accept Order"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="assignJButtonActionPerformed"/>

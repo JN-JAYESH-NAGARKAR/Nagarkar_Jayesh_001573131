@@ -21,7 +21,7 @@ import javax.swing.JPanel;
  *
  * @author raunak
  */
-public class RequestLabTestJPanel extends javax.swing.JPanel {
+public class RequestOrderJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private Enterprise enterprise;
@@ -29,7 +29,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RequestLabTestJPanel
      */
-    public RequestLabTestJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise) {
+    public RequestOrderJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -56,7 +56,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        requestTestJButton.setText("Request Test");
+        requestTestJButton.setText("Request Order");
         requestTestJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 requestTestJButtonActionPerformed(evt);
@@ -64,9 +64,9 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
         });
         add(requestTestJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 95, -1, -1));
 
-        jLabel1.setText("Message");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 40, -1, -1));
-        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 37, 89, -1));
+        jLabel1.setText("Add Order item");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 20));
+        add(messageJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 160, -1));
 
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +91,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
         LabTestWorkRequest request = new LabTestWorkRequest();
         request.setMessage(message);
         request.setSender(userAccount);
-        request.setStatus("Sent");
+        request.setStatus("Ordered");                 // --jayesh     changed pending to ordered
         
         Organization org = null;
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){

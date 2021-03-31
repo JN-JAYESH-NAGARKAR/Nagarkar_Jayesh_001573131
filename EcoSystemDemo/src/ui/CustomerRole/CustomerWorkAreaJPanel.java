@@ -14,6 +14,8 @@ import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+//import ui.LabAssistantRole.CommentOrderJPanel;
+
 
 /**
  *
@@ -45,7 +47,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[4];
-            row[0] = request.getMessage();
+            row[0] = request;         //--jayesh   row[0] = request.getMessage(); 
             row[1] = request.getReceiver();
             row[2] = request.getStatus();
             String result = ((LabTestWorkRequest) request).getTestResult();
@@ -71,6 +73,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         refreshTestJButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
+        btnFeedback = new javax.swing.JButton();
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,7 +83,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Message", "Receiver", "Status", "Result"
+                "Order Item", "Receiver", "Order Status", "Customer Review"
             }
         ) {
             Class[] types = new Class [] {
@@ -100,13 +103,11 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(workRequestJTable);
         if (workRequestJTable.getColumnModel().getColumnCount() > 0) {
-            workRequestJTable.getColumnModel().getColumn(0).setResizable(false);
             workRequestJTable.getColumnModel().getColumn(1).setResizable(false);
             workRequestJTable.getColumnModel().getColumn(2).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        requestTestJButton.setText("Request Test");
+        requestTestJButton.setText("Request Order");
         requestTestJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 requestTestJButtonActionPerformed(evt);
@@ -125,27 +126,36 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
 
         valueLabel.setText("<value>");
 
+        btnFeedback.setText("Feedback");
+        btnFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFeedbackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(192, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(165, 165, 165))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(requestTestJButton)
-                        .addGap(86, 86, 86))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(302, 302, 302)
+                .addComponent(requestTestJButton)
+                .addGap(75, 75, 75)
+                .addComponent(btnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(refreshTestJButton)
-                .addGap(103, 103, 103))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                        .addComponent(refreshTestJButton)
+                        .addGap(103, 103, 103))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,18 +166,20 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(refreshTestJButton)
                         .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(requestTestJButton)
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(requestTestJButton)
+                    .addComponent(btnFeedback))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
         
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.add("RequestLabTestJPanel", new RequestLabTestJPanel(userProcessContainer, userAccount, enterprise));
+        userProcessContainer.add("RequestLabTestJPanel", new RequestOrderJPanel(userProcessContainer, userAccount, enterprise));
         layout.next(userProcessContainer);
         
     }//GEN-LAST:event_requestTestJButtonActionPerformed
@@ -178,7 +190,27 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_refreshTestJButtonActionPerformed
 
+    private void btnFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFeedbackActionPerformed
+        // TODO add your handling code here:
+        System.out.println("CustomerWorkAreaJPanel line number 197");
+        int selectedRow = workRequestJTable.getSelectedRow();
+        
+        if (selectedRow < 0){
+            return;
+        }
+        System.out.println("CustomerWorkAreaJPanel line number 203");
+        LabTestWorkRequest request = (LabTestWorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
+     
+        
+        System.out.println("CustomerWorkAreaJPanel line number 207");
+        CommentOrderJPanel commentOrderJPanel = new CommentOrderJPanel(userProcessContainer, request);
+        userProcessContainer.add("commentOrderJPanel", commentOrderJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnFeedbackActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFeedback;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton refreshTestJButton;

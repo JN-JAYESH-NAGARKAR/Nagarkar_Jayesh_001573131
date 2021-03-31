@@ -36,7 +36,7 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
         this.userAccount = account;
         this.business = business;
         this.managerOrganization = (RestaurantManagerOrganization)organization;
-        
+        processJButton.setVisible(false);      //--jayesh  set visibilty of not useful button to false
         populateTable();
     }
     
@@ -81,7 +81,7 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Message", "Sender", "Receiver", "Status"
+                "Message", "Sender", "Receiver", "Order Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -107,9 +107,9 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 375, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 430, 120));
 
-        assignJButton.setText("Assign to me");
+        assignJButton.setText("Accept Order");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignJButtonActionPerformed(evt);
@@ -144,27 +144,13 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
         
         WorkRequest request = (WorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
         request.setReceiver(userAccount);
-        request.setStatus("Pending");
+        request.setStatus("Accepted");
         populateTable();
         
     }//GEN-LAST:event_assignJButtonActionPerformed
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
         
-        int selectedRow = workRequestJTable.getSelectedRow();
-        
-        if (selectedRow < 0){
-            return;
-        }
-        
-        LabTestWorkRequest request = (LabTestWorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
-     
-        request.setStatus("Processing");
-        
-        ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request);
-        userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
         
     }//GEN-LAST:event_processJButtonActionPerformed
 
