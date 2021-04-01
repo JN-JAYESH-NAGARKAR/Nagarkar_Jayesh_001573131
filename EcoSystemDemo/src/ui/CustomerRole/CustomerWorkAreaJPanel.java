@@ -76,7 +76,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
             row[1] = request.getDeliveryman();
             row[2] = request.getStatus();
             String result = ((OrderWorkRequest) request).getTestResult();
-            row[3] = result == null ? "Waiting" : result;
+            row[3] = result == null ? "" : result;
             row[4] = request.getRequestDate();
             row[5] = request.getResolveDate();
             

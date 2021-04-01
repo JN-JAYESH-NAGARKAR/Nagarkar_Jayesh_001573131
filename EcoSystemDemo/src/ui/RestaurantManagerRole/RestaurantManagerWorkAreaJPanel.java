@@ -368,6 +368,8 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
         String itemName = txtAddItemMenu.getText();
         double itemPrice = Double.parseDouble(txtPrice.getText()) ;
         enterprise.getMenu().addItem(new Item(itemName,itemPrice));
+        txtAddItemMenu.setText("");
+        txtPrice.setText("");
         populateMenuTable();
         
         
