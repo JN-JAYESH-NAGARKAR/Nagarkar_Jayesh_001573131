@@ -57,7 +57,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
             Object[] row = new Object[3];
             row[0] = item;
             row[1] = item.getName();
-            row[2] = item;
+            row[2] = item.getPrice();
             System.out.println(item.getName());
             
             model.addRow(row);
@@ -167,7 +167,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Menu");
 
         menuJTable.setModel(new javax.swing.table.DefaultTableModel(

@@ -84,12 +84,13 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(WorkRequest request : managerOrganization.getWorkQueue().getWorkRequestList()){
-            Object[] row = new Object[4];
+            Object[] row = new Object[5];
             if(request.getStatus().equals("Rejected")) continue;
             row[0] = request;
             row[1] = request.getSender().getEmployee().getName();
             row[2] = request.getReceiver() == null ? null : request.getReceiver().getEmployee().getName();
             row[3] = request.getStatus();
+            row[4] = request.getDeliveryman();
             
             model.addRow(row);
         }
@@ -127,20 +128,20 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Order Item", "Customer", "Restaurant Manager", "Order Status"
+                "Order Item", "Customer", "Restaurant Manager", "Order Status", "Delivery Personl"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -173,7 +174,7 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Menu");
 
         menuJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -281,7 +282,7 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

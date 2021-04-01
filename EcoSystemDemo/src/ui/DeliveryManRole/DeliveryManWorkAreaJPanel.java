@@ -158,6 +158,11 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel1.setText("<value>");
 
         btnPickUp.setText("Pick up");
+        btnPickUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPickUpActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -234,6 +239,19 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
         populateTable();
     }//GEN-LAST:event_refreshJButtonActionPerformed
+
+    private void btnPickUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPickUpActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = workRequestJTable.getSelectedRow();
+        
+        if (selectedRow < 0){
+            return;
+        }
+        
+        WorkRequest request = (WorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
+        request.setStatus("PickUp Completed");
+        populateTable();
+    }//GEN-LAST:event_btnPickUpActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton;
