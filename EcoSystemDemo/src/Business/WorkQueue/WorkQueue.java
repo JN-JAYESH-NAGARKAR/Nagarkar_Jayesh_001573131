@@ -21,4 +21,15 @@ public class WorkQueue {
     public ArrayList<WorkRequest> getWorkRequestList() {
         return workRequestList;
     }
+    public void removeRequest(OrderWorkRequest request){
+        workRequestList.remove(request);
+    }
+    
+    public void clearAllRequest(){
+        workRequestList.clear();
+    }
+    
+    public void addRequest(WorkRequest request){
+        workRequestList.add(request);
+    }
 }

@@ -61,7 +61,9 @@ public class UserAccount {
     public WorkQueue getWorkQueue() {
         return workQueue;
     }
-
+    public void clearAllRequest(){
+        workQueue.clearAllRequest();
+    }
     
     
     @Override

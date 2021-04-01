@@ -4,6 +4,7 @@
  */
 package Business.WorkQueue;
 
+import Business.Menu.Item;
 import Business.UserAccount.UserAccount;
 import java.util.Date;
 
@@ -16,9 +17,11 @@ public abstract class WorkRequest {
     private String message;
     private UserAccount sender;
     private UserAccount receiver;
+    private UserAccount deliveryman;
     private String status;
     private Date requestDate;
     private Date resolveDate;
+    private Item item;
     
     public WorkRequest(){
         requestDate = new Date();
@@ -72,7 +75,26 @@ public abstract class WorkRequest {
         this.resolveDate = resolveDate;
     }
      
-    public String toString(){
-        return this.message;
+    
+    public Item getItem() {
+        return item;
     }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public UserAccount getDeliveryman() {
+        return deliveryman;
+    }
+
+    public void setDeliveryman(UserAccount deliveryman) {
+        this.deliveryman = deliveryman;
+    }
+    
+    
+    public String toString(){
+        return this.item.getName();
+    }
+
 }

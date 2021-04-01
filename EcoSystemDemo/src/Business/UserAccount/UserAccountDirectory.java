@@ -56,6 +56,15 @@ public class UserAccountDirectory {
         
     }
     
+    public UserAccount searchUser(String username){
+        for(UserAccount ua : userAccountList){
+            if(ua.getUsername().equals(username)){
+                return ua;
+            }
+        }
+        return null;
+    }
+    
     public void modifyUserAccount(UserAccount userAccount,String username,String password){
         userAccount.setUsername(username);
         userAccount.setPassword(password);

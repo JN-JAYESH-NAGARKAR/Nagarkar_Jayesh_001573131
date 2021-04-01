@@ -3,6 +3,9 @@
 package ui.AdministrativeRole;
 
 import Business.Enterprise.Enterprise;
+import Business.Organization.DeliveryManOrganization;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -36,6 +39,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         manageOrganizationJButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
+        btnCancelAllRequest = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("My Work Area -Adminstrative Role");
@@ -67,6 +71,13 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
 
+        btnCancelAllRequest.setText("Cancel all ent request ");
+        btnCancelAllRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelAllRequestActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,7 +97,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(manageEmployeeJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(userJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCancelAllRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
@@ -103,7 +115,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addComponent(manageEmployeeJButton)
                 .addGap(29, 29, 29)
-                .addComponent(userJButton))
+                .addComponent(userJButton)
+                .addGap(18, 18, 18)
+                .addComponent(btnCancelAllRequest)
+                .addContainerGap(119, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -133,9 +148,26 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
+
+    private void btnCancelAllRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelAllRequestActionPerformed
+        // TODO add your handling code here:
+        //-- jayesh trying to add request to the deliveryman organization
+        
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
+            if (organization!=null){
+            for(UserAccount uc : organization.getUserAccountDirectory().getUserAccountList()){
+                uc.clearAllRequest();
+            }
+            organization.getWorkQueue().clearAllRequest();
+            
+        }
+        }
+        
+    }//GEN-LAST:event_btnCancelAllRequestActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelAllRequest;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageEmployeeJButton;
