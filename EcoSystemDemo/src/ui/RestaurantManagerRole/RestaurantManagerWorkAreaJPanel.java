@@ -5,11 +5,13 @@
 package ui.RestaurantManagerRole;
 
 import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Menu.Item;
 //import Business.Organization.LabOrganization;
 import Business.Organization.Organization;
 import Business.Organization.RestaurantManagerOrganization;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.LabTestWorkRequest;
+import Business.WorkQueue.OrderWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -23,21 +25,42 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem business;
+    private Enterprise enterprise;
     private UserAccount userAccount;
     private RestaurantManagerOrganization managerOrganization;
     
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public RestaurantManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem business) {
+    public RestaurantManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization,Enterprise enterprise ,EcoSystem business) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.business = business;
+        this.enterprise = enterprise;
+        System.out.println(enterprise.getName());
         this.managerOrganization = (RestaurantManagerOrganization)organization;
         processJButton.setVisible(false);      //--jayesh  set visibilty of not useful button to false
         populateTable();
+        populateMenuTable();
+    }
+    
+    public void populateMenuTable(){
+        DefaultTableModel model = (DefaultTableModel)menuJTable.getModel();
+        
+        model.setRowCount(0);
+        
+        if(true){
+            for(Item item : enterprise.getMenu().getItemList()){
+            Object[] row = new Object[2];
+            row[0] = item;
+            row[1] = item.getName();
+            System.out.println(item.getName());
+            
+            model.addRow(row);
+        }
+        }
     }
     
     public void populateTable(){
@@ -70,8 +93,14 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
         assignJButton = new javax.swing.JButton();
         processJButton = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
-
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        menuJTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtAddItemMenu = new javax.swing.JTextField();
+        btnAddItemMenu = new javax.swing.JButton();
+        btnDeleteItemMenu = new javax.swing.JButton();
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,7 +110,7 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Message", "Sender", "Receiver", "Order Status"
+                "Order Item", "Customer", "Restaurant Manager", "Order Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -107,15 +136,12 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 430, 120));
-
         assignJButton.setText("Accept Order");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 215, -1, -1));
 
         processJButton.setText("Process");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +149,6 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 215, -1, -1));
 
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +156,101 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Menu");
+
+        menuJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "ID", "Name"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(menuJTable);
+
+        jButton1.setText("Reject Order");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setText("Enter New Item to add");
+
+        btnAddItemMenu.setText("Add Item");
+        btnAddItemMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddItemMenuActionPerformed(evt);
+            }
+        });
+
+        btnDeleteItemMenu.setText("Delete Item");
+        btnDeleteItemMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteItemMenuActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(refreshJButton)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(assignJButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 325, Short.MAX_VALUE)
+                        .addComponent(processJButton))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtAddItemMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(btnAddItemMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnDeleteItemMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(refreshJButton)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(assignJButton)
+                    .addComponent(processJButton)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtAddItemMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddItemMenu)
+                    .addComponent(btnDeleteItemMenu))
+                .addGap(229, 229, 229))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -150,7 +269,7 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_assignJButtonActionPerformed
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
-        
+      
         
     }//GEN-LAST:event_processJButtonActionPerformed
 
@@ -158,11 +277,41 @@ public class RestaurantManagerWorkAreaJPanel extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_refreshJButtonActionPerformed
 
+    private void btnDeleteItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteItemMenuActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = menuJTable.getSelectedRow();
+        
+        if (selectedRow < 0){
+            return;
+        }
+        
+        Item item = (Item)menuJTable.getValueAt(selectedRow, 0);
+        enterprise.getMenu().removeItem(item);
+        populateMenuTable();
+    }//GEN-LAST:event_btnDeleteItemMenuActionPerformed
+
+    private void btnAddItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemMenuActionPerformed
+        // TODO add your handling code here:
+        String itemName = txtAddItemMenu.getText();
+        enterprise.getMenu().addItem(new Item(itemName));
+        populateMenuTable();
+        
+        
+    }//GEN-LAST:event_btnAddItemMenuActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton;
+    private javax.swing.JButton btnAddItemMenu;
+    private javax.swing.JButton btnDeleteItemMenu;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable menuJTable;
     private javax.swing.JButton processJButton;
     private javax.swing.JButton refreshJButton;
+    private javax.swing.JTextField txtAddItemMenu;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }

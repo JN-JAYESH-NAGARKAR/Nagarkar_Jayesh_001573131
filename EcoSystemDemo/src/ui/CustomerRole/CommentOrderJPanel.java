@@ -5,7 +5,7 @@
 package ui.CustomerRole;
 
 
-import Business.WorkQueue.LabTestWorkRequest;
+import Business.WorkQueue.OrderWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -18,11 +18,11 @@ import javax.swing.JPanel;
 public class CommentOrderJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
-    LabTestWorkRequest request;
+    OrderWorkRequest request;
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public CommentOrderJPanel(JPanel userProcessContainer, LabTestWorkRequest request) {
+    public CommentOrderJPanel(JPanel userProcessContainer, OrderWorkRequest request) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.request = request;

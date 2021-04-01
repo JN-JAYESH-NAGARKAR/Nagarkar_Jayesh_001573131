@@ -8,7 +8,7 @@ package Business.WorkQueue;
  *
  * @author raunak
  */
-public class LabTestWorkRequest extends WorkRequest{
+public class OrderWorkRequest extends WorkRequest{
     
     private String testResult;
 

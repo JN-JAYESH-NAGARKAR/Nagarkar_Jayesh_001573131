@@ -1,10 +1,12 @@
- /*
+
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package Business.Enterprise;
 
+import Business.Menu.Menu;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 
@@ -16,6 +18,7 @@ public abstract class Enterprise extends Organization{
     
     private EnterpriseType enterpriseType;
     private OrganizationDirectory organizationDirectory;
+    private Menu menu;
 
     public OrganizationDirectory getOrganizationDirectory() {
         return organizationDirectory;
@@ -51,5 +54,15 @@ public abstract class Enterprise extends Organization{
         super(name);
         this.enterpriseType=type;
         organizationDirectory=new OrganizationDirectory();
+        this.menu = new Menu();
     }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+    
 }

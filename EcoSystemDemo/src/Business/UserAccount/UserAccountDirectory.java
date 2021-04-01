@@ -49,4 +49,17 @@ public class UserAccountDirectory {
         }
         return true;
     }
+    
+    public void removeUserAccount(UserAccount userAccount){
+        
+        userAccountList.remove(userAccount);
+        
+    }
+    
+    public void modifyUserAccount(UserAccount userAccount,String username,String password){
+        userAccount.setUsername(username);
+        userAccount.setPassword(password);
+        //userAccount.setRole(role);
+        
+    }
 }

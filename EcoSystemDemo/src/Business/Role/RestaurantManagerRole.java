@@ -19,6 +19,7 @@ import ui.RestaurantManagerRole.RestaurantManagerWorkAreaJPanel;
 public class RestaurantManagerRole extends Role {
     @Override      //update return statement   --jayesh
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new RestaurantManagerWorkAreaJPanel(userProcessContainer, account, organization, business);
+        System.out.println(enterprise.getName());
+        return new RestaurantManagerWorkAreaJPanel(userProcessContainer, account, organization,enterprise, business);
     }
 }

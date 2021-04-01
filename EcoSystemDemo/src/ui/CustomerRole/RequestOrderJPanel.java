@@ -6,11 +6,12 @@ package ui.CustomerRole;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Organization.DeliveryManOrganization;
 //import Business.Organization.LabOrganization;
 import Business.Organization.Organization;
 import Business.Organization.RestaurantManagerOrganization;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.LabTestWorkRequest;
+import Business.WorkQueue.OrderWorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.logging.Level;
@@ -88,7 +89,7 @@ public class RequestOrderJPanel extends javax.swing.JPanel {
         
         String message = messageJTextField.getText();
         
-        LabTestWorkRequest request = new LabTestWorkRequest();
+        OrderWorkRequest request = new OrderWorkRequest();
         request.setMessage(message);
         request.setSender(userAccount);
         request.setStatus("Ordered");                 // --jayesh     changed pending to ordered
@@ -103,6 +104,18 @@ public class RequestOrderJPanel extends javax.swing.JPanel {
         if (org!=null){
             org.getWorkQueue().getWorkRequestList().add(request);
             userAccount.getWorkQueue().getWorkRequestList().add(request);
+        }
+        
+        //-- jayesh trying to add request to the deliveryman organization
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
+            if (organization instanceof DeliveryManOrganization){
+                org = organization;
+                break;
+            }
+        }
+        if (org!=null){
+            org.getWorkQueue().getWorkRequestList().add(request);
+            //userAccount.getWorkQueue().getWorkRequestList().add(request);
         }
         
     }//GEN-LAST:event_requestTestJButtonActionPerformed
