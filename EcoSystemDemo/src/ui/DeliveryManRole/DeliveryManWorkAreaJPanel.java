@@ -152,7 +152,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel.setText("<value>");
 
         enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        enterpriseLabel1.setText("Manager Username");
+        enterpriseLabel1.setText("Deliveryman Username");
 
         valueLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         valueLabel1.setText("<value>");
@@ -180,16 +180,16 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(processJButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(refreshJButton)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(valueLabel)
                                 .addGap(65, 65, 65)
-                                .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(valueLabel1))
-                            .addComponent(refreshJButton))
-                        .addGap(0, 270, Short.MAX_VALUE)))
+                                .addComponent(valueLabel1)))
+                        .addGap(0, 244, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

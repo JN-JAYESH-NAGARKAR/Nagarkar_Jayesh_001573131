@@ -64,5 +64,6 @@ public abstract class Enterprise extends Organization{
     public void setMenu(Menu menu) {
         this.menu = menu;
     }
+
     
 }
